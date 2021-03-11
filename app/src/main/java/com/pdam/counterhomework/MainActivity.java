@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
     private Button mBtnCount;
     private  TextView mTxtEditText;
 
-    private int mCount = 0;
+    private int mCount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,9 +28,12 @@ public class MainActivity extends AppCompatActivity {
 
         if(savedInstanceState != null) {
             int count = savedInstanceState.getInt("mCount_value");
+            mCount = count;
             mLblCount.setText(Integer.toString(count));
+
         }
         else {
+            mCount = 0;
             mLblCount.setText("0");
         }
 
@@ -42,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
         if (mCount > 0) {
             outState.putInt("mCount_value", mCount);
         }
-
     }
 
     public void countUp (View view) {
